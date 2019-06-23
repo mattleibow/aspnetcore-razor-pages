@@ -1,0 +1,36 @@
+﻿@page
+@{
+    ViewData["Title"] = "Dad Jokes";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Are you ready for a dad joke? 3... 2... 1...</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 m-md-auto">
+
+            <div class="card text-center">
+                <div class="card-body">
+                    <p id="dadJoke" class="card-text">Loading dad joke, please wait...</p>
+                    <button type="button" class="btn btn-primary" onclick="refreshJoke()">Get another dad joke</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+<script>
+    function refreshJoke() {
+        $.getJSON("https://icanhazdadjoke.com/", function (data) {
+            $("#dadJoke").text(data.joke);
+        });
+    }
+
+    refreshJoke();
+</script>
+}
