@@ -16,7 +16,12 @@ namespace WebIntro.Pages
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public int PageNumber { get; set; }
+
         public string[] Jokes { get; set; }
+
+        public int TotalPages { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -30,7 +35,10 @@ namespace WebIntro.Pages
 
         private async Task DoSearchAsync()
         {
-            var results = await client.SearchJokesAsync(SearchTerm, 1, 10);
+            var results = await client.SearchJokesAsync(SearchTerm, PageNumber, 10);
+
+            PageNumber = results.CurrentPage;
+            TotalPages = results.TotalPages;
 
             Jokes = results.Results.Select(j => j.Joke).ToArray();
         }

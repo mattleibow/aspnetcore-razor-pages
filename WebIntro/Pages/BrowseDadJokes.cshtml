@@ -1,6 +1,8 @@
 ﻿@page
 @model BrowseDadJokesModel
 @{
+    const int PagePadding = 3;
+
     ViewData["Title"] = "Browse Dad Jokes";
 }
 
@@ -30,4 +32,38 @@
         <p>No dad jokes found for '@Model.SearchTerm'.</p>
     }
 
+    <input type="hidden" name="PageNumber" value="@Model.PageNumber" />
+
+    <nav>
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(Model.PageNumber <= 1 ? "disabled" : "")">
+                <button type="button" class="page-link" onclick="gotoPage(@(Model.PageNumber - 1))">Previous</button>
+            </li>
+            @for (int i = Math.Max(1, Model.PageNumber - PagePadding); i <= Math.Min(Model.PageNumber + PagePadding, Model.TotalPages); i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <button type="button" class="page-link" onclick="gotoPage(@i)">@i</button>
+                </li>
+            }
+            <li class="page-item @(Model.PageNumber >= Model.TotalPages ? "disabled" : "")">
+                <button type="button" class="page-link" onclick="gotoPage(@(Model.PageNumber + 1))">Next</button>
+            </li>
+        </ul>
+    </nav>
+
 </form>
+
+@section Scripts
+{
+<script>
+    function gotoPage(page) {
+        $("#search-form input[name=PageNumber]").val(page);
+        $("#search-form").submit();
+    }
+
+    $("#search-form button[type=submit]").click(function (evt) {
+        // reset the page number on search
+        $("#search-form input[name=PageNumber]").val(1);
+    });
+</script>
+}
