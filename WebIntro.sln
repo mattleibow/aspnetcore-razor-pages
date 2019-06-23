@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebIntro", "WebIntro\WebIntro.csproj", "{430090A3-A252-4A7B-B23A-0BE64C047983}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebIntro", "WebIntro\WebIntro.csproj", "{430090A3-A252-4A7B-B23A-0BE64C047983}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80A9B7A8-81EA-4604-A2DB-8C6DB8AC30D9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,9 +18,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{430090A3-A252-4A7B-B23A-0BE64C047983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,5 +32,11 @@ Global
 		{430090A3-A252-4A7B-B23A-0BE64C047983}.Release|x64.Build.0 = Release|Any CPU
 		{430090A3-A252-4A7B-B23A-0BE64C047983}.Release|x86.ActiveCfg = Release|Any CPU
 		{430090A3-A252-4A7B-B23A-0BE64C047983}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5A965DD-708A-4206-A243-2625180DE028}
 	EndGlobalSection
 EndGlobal
