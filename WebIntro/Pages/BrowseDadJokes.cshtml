@@ -1,0 +1,21 @@
+﻿@page
+@model BrowseDadJokesModel
+@{
+    ViewData["Title"] = "Browse Dad Jokes";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.Jokes?.Length > 0)
+{
+    <ul class="list-group mb-3">
+        @foreach (var joke in Model.Jokes)
+        {
+            <li class="list-group-item">@joke</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No dad jokes found for '@Model.SearchTerm'.</p>
+}
