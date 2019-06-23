@@ -1,4 +1,5 @@
 ﻿@page
+@using ICanHazDadJoke.NET;
 @{
     ViewData["Title"] = "Dad Jokes";
 }
@@ -13,7 +14,7 @@
 
             <div class="card text-center">
                 <div class="card-body">
-                    <p id="dadJoke" class="card-text">Loading dad joke, please wait...</p>
+                    <p id="dadJoke" class="card-text">@await GetRandomJokeAsync()</p>
                     <button type="button" class="btn btn-primary" onclick="refreshJoke()">Get another dad joke</button>
                 </div>
             </div>
@@ -30,7 +31,14 @@
             $("#dadJoke").text(data.joke);
         });
     }
-
-    refreshJoke();
 </script>
+}
+
+@functions
+{
+    async Task<string> GetRandomJokeAsync()
+    {
+        var client = new DadJokeClient("WebIntro", "https://github.com/mattleibow/aspnetcore-razor-pages");
+        return await client.GetRandomJokeStringAsync();
+    }
 }
