@@ -1,5 +1,5 @@
 ﻿@page
-@using ICanHazDadJoke.NET;
+@using WebIntro.Services
 @{
     ViewData["Title"] = "Dad Jokes";
 }
@@ -42,7 +42,9 @@
 {
     async Task<string> GetRandomJokeAsync()
     {
-        var client = new DadJokeClient("WebIntro", "https://github.com/mattleibow/aspnetcore-razor-pages");
-        return await client.GetRandomJokeStringAsync();
+        // don't use this in real life, use the page model constructor
+        var service = (IJokeService)HttpContext.RequestServices.GetService(typeof(IJokeService));
+
+        return await service.GetRandomJokeAsync();
     }
 }
