@@ -4,14 +4,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ICanHazDadJoke.NET;
+using WebIntro.Services;
 
 namespace WebIntro.Pages
 {
     public class BrowseDadJokesModel : PageModel
     {
-        private readonly DadJokeClient client =
-            new DadJokeClient("WebIntro", "https://github.com/mattleibow/aspnetcore-razor-pages");
+        private readonly IJokeService service;
+
+        public BrowseDadJokesModel(IJokeService jokeService)
+        {
+            service = jokeService;
+        }
 
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; }
@@ -35,12 +39,12 @@ namespace WebIntro.Pages
 
         private async Task DoSearchAsync()
         {
-            var results = await client.SearchJokesAsync(SearchTerm, PageNumber, 10);
+            var results = await service.SearchJokesAsync(SearchTerm, PageNumber);
 
             PageNumber = results.CurrentPage;
             TotalPages = results.TotalPages;
 
-            Jokes = results.Results.Select(j => j.Joke).ToArray();
+            Jokes = results.Jokes;
         }
     }
 }
