@@ -2,4 +2,4 @@
 
 ## Steps
 
-1. (Add the default project)[compare/steps/00-blank-repo...steps/01-new]
+1. [Add the default project](compare/steps/00-blank-repo...steps/01-new)
