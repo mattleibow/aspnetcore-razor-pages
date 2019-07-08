@@ -31,8 +31,8 @@
 {
 <script>
     function refreshJoke() {
-        $.getJSON("https://icanhazdadjoke.com/", function (data) {
-            $("#dadJoke").text(data.joke);
+        $.get("/api/joke", function (data) {
+            $("#dadJoke").text(data);
         });
     }
 </script>
