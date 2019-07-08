@@ -10,6 +10,7 @@
  6. [Add a form to the page and query string processing](https://github.com/mattleibow/aspnetcore-razor-pages/compare/steps/05-add-page-model...steps/06-add-form)
  7. [Add more complex page generation and processing](https://github.com/mattleibow/aspnetcore-razor-pages/compare/steps/06-add-form...steps/07-add-pagination)
  8. [Add a Web API](https://github.com/mattleibow/aspnetcore-razor-pages/compare/steps/07-add-pagination...steps/08-add-webapi)
+ 9. [Add some dependency injection](https://github.com/mattleibow/aspnetcore-razor-pages/compare/steps/08-add-webapi...steps/09-add-di)
 
 ## Other Examples
 
